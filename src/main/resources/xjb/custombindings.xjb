@@ -1,0 +1,14 @@
+<jxb:bindings xmlns:jxb="http://java.sun.com/xml/ns/jaxb" 
+			  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+			  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+			  xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+			  jxb:extensionBindingPrefixes="xjc"
+			  version="2.0">
+
+ 
+      <jxb:globalBindings generateIsSetMethod="true">
+        <xjc:serializable uid="1"/>
+	<!--	 <xjc:typesafeEnumMaxMembers="2000"/>-->
+      </jxb:globalBindings>  
+	
+</jxb:bindings>

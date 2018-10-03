@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:au="http://schema.dummy.cham.com/audit/0/1" targetNamespace="http://schema.dummy.cham.com/audit/0/1"
+           version="0.1">
+
+    <xs:complexType name="AuditRequest">
+        <xs:annotation>
+            <xs:documentation>Audit Request</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="id" type="xs:string" nillable="true" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>This is a unique id </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="requestId" type="xs:string" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>This is a unique id supplied in the request (xml) sent by the upstream system</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="auditId" type="xs:string" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>order id etc</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="messageContent" type="xs:string" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Actual request xml</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="messageType" type="xs:string" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>This is the type of message </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="status" type="xs:string" nillable="true" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>This is the status of the flow</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="statusReason" type="xs:string" nillable="true" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>This is the reason behind failures</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="statusCode" type="xs:string" nillable="true" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>This is the error code for the failures</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="retryCount" type="xs:string" nillable="true" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>This is the error code for the failures</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="sourceSystem" type="au:ExchangeSystem" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Source System of the message</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="targetSystem" type="au:ExchangeSystem" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Target system of the message</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="targetEndpoint" type="xs:string" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Target Endpoint of the message</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="transportType" type="au:TransportTypes" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Transport type for the message</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+
+            <xs:element name="receivedDateTime" type="xs:dateTime" nillable="true" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Received DateTime of the payload from the system</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+
+            <xs:element name="replayDateTime" type="xs:dateTime"  nillable="true" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Replay date time for the order</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="ExchangeSystem">
+        <xs:annotation>
+            <xs:documentation>External systems</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="AAAA"/>
+            <xs:enumeration value="BBBB"/>
+            <xs:enumeration value="CCCC"/>
+            <xs:enumeration value="DDDD"/>
+            <xs:enumeration value="EEEE"/>
+            <xs:enumeration value="FFFF"/>
+            <xs:enumeration value="GGGG"/>
+            <xs:enumeration value="HHHH"/>
+            <xs:enumeration value="IIII"/>
+            <xs:enumeration value="JJJJJ"/>
+            <xs:enumeration value="KKKK"/>
+            <xs:enumeration value="LLLL"/>
+            <xs:enumeration value="MMMM"/>
+            <xs:enumeration value="NNNN"/>
+            <xs:enumeration value="OOO"/>
+            <xs:enumeration value="PPPP"/>
+            <xs:enumeration value="QQQQ"/>
+            <xs:enumeration value="RRRRR"/>
+            <xs:enumeration value="SSSS"/>
+            <xs:enumeration value="TTTT"/>
+            <xs:enumeration value="UUUU"/>
+            <xs:enumeration value="VVVV"/>
+            <xs:enumeration value="WWWW"/>
+            <xs:enumeration value="XXXX"/>
+            <xs:enumeration value="YYYY"/>
+            <xs:enumeration value="ZZZZ"/>
+            <xs:enumeration value="Internal"/> 
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="TransportTypes">
+        <xs:annotation>
+            <xs:documentation>This is a for TransportType HTTP JMS FTP SFTP </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="HTTP"/>
+            <xs:enumeration value="JMS"/>
+            <xs:enumeration value="FTP"/>
+            <xs:enumeration value="SFTP"/>
+            <xs:enumeration value="TCP"/>
+            <xs:enumeration value="USSD"/>
+            <xs:enumeration value="STK"/>
+            <xs:enumeration value="UDP"/>
+            <xs:enumeration value="SMTP"/>
+            <xs:enumeration value="SMPP"/>
+            <xs:enumeration value="JDBC"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="Audit" type="au:AuditRequest"/>
+
+</xs:schema>

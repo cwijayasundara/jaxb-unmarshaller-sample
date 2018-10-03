@@ -1,0 +1,17 @@
+<ns:Audit xmlns:ns="http://schema.dummy.cham.com/audit/0/1">
+  <id>1234</id>
+  <requestId>req123</requestId>
+  <auditId>req123</auditId>
+  <messageContent>backend down</messageContent>
+  <messageType>warning</messageType>
+  <status>failure</status>
+  <statusReason>backend system down</statusReason>
+  <statusCode>Err001</statusCode>
+  <retryCount>2</retryCount>
+  <sourceSystem>YYYY</sourceSystem>
+  <targetSystem>BBBB</targetSystem>
+  <targetEndpoint>employee service</targetEndpoint>
+  <transportType>SMTP</transportType>
+  <receivedDateTime>2014-09-19T00:18:33</receivedDateTime>
+  <replayDateTime>2006-08-19T18:27:14+01:00</replayDateTime>
+</ns:Audit>
